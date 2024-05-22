@@ -7,17 +7,29 @@ namespace XadrezConsole {
     class Program {
         static void Main(string[] args) {
             try { 
-                Tabuleiro tab = new Tabuleiro (8,8);
+             
+                PartidaDeXadrez partida = new PartidaDeXadrez();
 
-                //colocando peças no tabuleiro tab
-                tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 0));
-                tab.colocarPeca(new Torre(tab, Cor.Preta), new Posicao(1, 3));
-                tab.colocarPeca(new Rei(tab, Cor.Preta), new Posicao(0, 2));
+                while (!partida.terminada) {
+                    
+                    Console.Clear();
+                    Tela.imprimirTabuleiro(partida.tab);
 
-                tab.colocarPeca(new Torre(tab, Cor.Branca), new Posicao(7, 2));
-                tab.colocarPeca(new Rei(tab, Cor.Branca), new Posicao(3, 5));
+                    Console.WriteLine();
 
-                Tela.imprimirTabuleiro(tab);
+                    Console.Write("Origem: ");
+
+                    //transforma em posição de matriz
+                    Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
+
+                    Console.Write("Destino: ");
+
+                    //transforma em posição de matriz
+                    Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
+
+                    // chamando metodo que excuta o movimento
+                    partida.executaMovimento(origem, destino);
+                }              
                 
             }
             catch (TabuleiroException e){
