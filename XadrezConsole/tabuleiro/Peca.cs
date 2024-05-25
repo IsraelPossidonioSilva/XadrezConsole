@@ -18,7 +18,11 @@
            qteMovimentos++;
        }
 
-        
+        public void decrementarQteMovimentos() {
+            qteMovimentos--;
+        }
+
+
         public bool existeMovimentosPossiveis() {
             /*verifica na matriz de movimentos possiveis
         existe pelo menos algum valor verdadeiro(testa se a peça não está bloqueada de movimentos)*/
