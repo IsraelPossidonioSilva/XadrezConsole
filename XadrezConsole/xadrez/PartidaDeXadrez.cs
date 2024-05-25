@@ -22,7 +22,7 @@ namespace xadrez {
             Peca p = tab.retirarPeca(origem);
 
             //moveu a peça de lugar
-            p.incrementarQteMovimentos();
+           p.incrementarQteMovimentos();
 
             // retira a peça do destino caso exista
             Peca pecaCapturada = tab.retirarPeca(destino);

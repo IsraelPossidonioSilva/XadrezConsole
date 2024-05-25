@@ -16,19 +16,20 @@ namespace XadrezConsole {
                     Tela.imprimirTabuleiro(partida.tab);
 
                     Console.WriteLine();
-
                     Console.Write("Origem: ");
+                    Posicao origem = Tela.lerPosicaoXadrez().toPosicao();//transforma em posição de matriz
 
-                    //transforma em posição de matriz
-                    Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
+                    bool[,] posicoesPossiveis = partida.tab.peca(origem).movimentosPossiveis();
 
-                    Console.Write("Destino: ");
+                    Console.Clear();
+                    Tela.imprimirTabuleiro(partida.tab, posicoesPossiveis);
 
-                    //transforma em posição de matriz
-                    Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
+                    Console.WriteLine();
+                    Console.Write("Destino: ");                  
+                    Posicao destino = Tela.lerPosicaoXadrez().toPosicao();//transforma em posição de matriz
 
-                    // chamando metodo que excuta o movimento
-                    partida.executaMovimento(origem, destino);
+                    
+                    partida.executaMovimento(origem, destino);// chamando metodo que excuta o movimento
                 }              
                 
             }
